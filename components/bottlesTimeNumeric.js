@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 import styles from '../styles/styles';
 
-export default function NumericInputs({ onBottlesChange, onTimeChange }) {
+export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) {
   const handleBottlesInputChange = (value) => {
     onBottlesChange(value);
   };
@@ -14,8 +14,8 @@ export default function NumericInputs({ onBottlesChange, onTimeChange }) {
 
   return (
     <View>
-      <Text style={styles.label}>
-        Bottles
+      <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>
+        Bottles:
       </Text>
       <View style={styles.numericBoxContainer}>
         <NumericInput
@@ -26,8 +26,8 @@ export default function NumericInputs({ onBottlesChange, onTimeChange }) {
           rounded
         />
       </View>
-      <Text style={styles.label}>
-        Hours
+      <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>
+        Hours:
       </Text>
       <View style={styles.numericBoxContainer}>
         <NumericInput

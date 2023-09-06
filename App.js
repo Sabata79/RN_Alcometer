@@ -18,8 +18,12 @@ export default function App() {
   };
 
   const getThemeStyle = () => {
-    return theme === 'light' ? styles.container : styles.darkTheme.container;
-  }
+    if (theme === 'light') {
+      return styles.container;
+    } else if (theme === 'dark') {
+      return [styles.container, styles.darkTheme.container];
+    }
+  };
 
   const handleBottlesInputChange = (value) => {
     setBottles(value);
@@ -59,9 +63,9 @@ export default function App() {
       <ThemeSwitch theme={theme} onToggle={handleThemeToggle} />
       <ScrollView>
         <View>
-          <Text style={styles.header}>Alcometer</Text>
+          <Text style={[styles.header, theme === 'dark' && { color: styles.darkThemeColor }]}>Alcometer</Text>
         </View>
-        <Text style={styles.label}>Weight</Text>
+        <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight:</Text>
         <TextInput
           style={styles.input}
           onChangeText={value => setWeight(value)}
@@ -71,8 +75,9 @@ export default function App() {
         <NumericInputs
           onBottlesChange={handleBottlesInputChange}
           onTimeChange={handleTimeInputChange}
+          theme={theme}
         />
-        <Radiobuttons selectedValue={genre} onRadioButtonChange={handleRadioButtonChange} />
+        <Radiobuttons selectedValue={genre} onRadioButtonChange={handleRadioButtonChange} theme={theme} />
         <View>
           <TouchableOpacity onPress={() => countResult()}>
             <Text style={styles.calculatebutton}>Calculate</Text>
@@ -80,7 +85,9 @@ export default function App() {
         </View>
         {result !== null && (
           <View>
-            <Text style={styles.result}>{result.toFixed(2)} Per mille</Text>
+            <Text style={[styles.result, theme === 'dark' && { color: styles.darkThemeColor }]}>
+              {result.toFixed(2)} Per mille
+            </Text>
           </View>
         )}
       </ScrollView>

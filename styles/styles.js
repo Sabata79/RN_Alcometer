@@ -2,7 +2,9 @@ import { StatusBar, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 
-    numericInputColor: "#cc6600",
+    numericInputColor: "orange",
+    darkThemeColor: "#ffffff",
+    lightThemeColor :"#000000",
 
     container: {
         paddingTop: StatusBar.currentHeight + 5,
@@ -33,7 +35,9 @@ const styles = StyleSheet.create({
         borderBottomColor: '#000000',
         borderBottomWidth: 1,
         paddingHorizontal: 10,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginBottom: 10,
+        marginTop: 10
     },
     numericBoxContainer: {
         padding: 10,
@@ -61,11 +65,6 @@ const styles = StyleSheet.create({
     darkTheme: {
         container: {
             backgroundColor: '#000000',
-        },
-        header: {
-            color: '#ffffff'
-        },
-        result: {
             color: '#ffffff'
         },
     },
