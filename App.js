@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
 import styles from './styles/styles';
 import ThemeSwitch from './components/themeSwitch'
 import NumericInputs from './components/bottlesTimeNumeric';
@@ -12,6 +12,7 @@ export default function App() {
   const [time, setTime] = useState('');
   const [bottles, setBottles] = useState('');
   const [result, setResult] = useState(null);
+  const [ok, setOk] = useState(false);
 
   const handleThemeToggle = (isDarkTheme) => {
     setTheme(isDarkTheme ? 'dark' : 'light');
@@ -39,6 +40,20 @@ export default function App() {
 
   function countResult() {
 
+    if (weight === '') {
+      Alert.alert(
+        'You must enter your weight!',
+        'Please provide your weight before calculating.',
+        [
+          {
+            text: 'OK',
+            onPress: () => setOk(true),
+          },
+        ]
+      );
+      return;
+    }
+
     let litres = bottles * 0.33
     let grams = litres * 8 * 4.5
     let burning = weight / 10
@@ -65,7 +80,7 @@ export default function App() {
         <View>
           <Text style={[styles.header, theme === 'dark' && { color: styles.darkThemeColor }]}>Alcometer</Text>
         </View>
-        <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight:</Text>
+        <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight :</Text>
         <TextInput
           style={styles.input}
           onChangeText={value => setWeight(value)}
@@ -80,7 +95,7 @@ export default function App() {
         <Radiobuttons selectedValue={genre} onRadioButtonChange={handleRadioButtonChange} theme={theme} />
         <View>
           <TouchableOpacity onPress={() => countResult()}>
-            <Text style={styles.calculatebutton}>Calculate</Text>
+            <Text style={[styles.calculatebutton, theme === 'dark' && { borderColor: styles.darkThemeColor }]}>Calculate</Text>
           </TouchableOpacity>
         </View>
         {result !== null && (

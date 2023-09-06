@@ -4,6 +4,9 @@ import NumericInput from 'react-native-numeric-input';
 import styles from '../styles/styles';
 
 export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) {
+
+  const options = ['Bottles', 'Hours'];
+
   const handleBottlesInputChange = (value) => {
     onBottlesChange(value);
   };
@@ -14,30 +17,24 @@ export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) 
 
   return (
     <View>
-      <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>
-        Bottles:
-      </Text>
-      <View style={styles.numericBoxContainer}>
-        <NumericInput
-          minValue={0}
-          onChange={handleBottlesInputChange}
-          rightButtonBackgroundColor={styles.numericInputColor}
-          leftButtonBackgroundColor={styles.numericInputColor}
-          rounded
-        />
-      </View>
-      <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>
-        Hours:
-      </Text>
-      <View style={styles.numericBoxContainer}>
-        <NumericInput
-          minValue={0}
-          onChange={handleTimeInputChange}
-          rightButtonBackgroundColor={styles.numericInputColor}
-          leftButtonBackgroundColor={styles.numericInputColor}
-          rounded
-        />
-      </View>
+      {options.map((option) => (
+        <View key={option}>
+          <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>
+            {option} :
+          </Text>
+          <View style={styles.numericBoxContainer}>
+            <NumericInput
+              minValue={0}
+              onChange={option === 'Bottles' ? handleBottlesInputChange : handleTimeInputChange}
+              rightButtonBackgroundColor={styles.numericInputColor}
+              leftButtonBackgroundColor={styles.numericInputColor}
+              containerStyle={{ backgroundColor:  styles.darkThemeColor }}
+              borderColor={theme === 'dark' ? styles.darkThemeColor : styles.lightThemeColor}
+              rounded
+            />
+          </View>
+        </View>
+      ))}
     </View>
   );
 }

@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgrey',
         width: 340,
         borderBottomColor: '#000000',
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         paddingHorizontal: 10,
         alignSelf: 'center',
         marginBottom: 10,
-        marginTop: 10
+        marginTop: 5
     },
     numericBoxContainer: {
         padding: 10,
