@@ -87,11 +87,20 @@ export default function App() {
           placeholder="Write here your weight"
           keyboardType="numeric"
         />
-        <NumericInputs
-          onBottlesChange={handleBottlesInputChange}
-          onTimeChange={handleTimeInputChange}
-          theme={theme}
-        />
+        <View style={styles.contentContainer}>
+          <View style={styles.numericInputsContainer}>
+            <NumericInputs
+              onBottlesChange={handleBottlesInputChange}
+              onTimeChange={handleTimeInputChange}
+              theme={theme}
+            />
+          </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.goodToGo}>Green blood alcohol limit (0.0 - 0.2): The effects of alcohol are minimal at this stage.</Text>
+            <Text style={styles.thinkTwice}>Yellow blood alcohol limit (0.2 - 0.5): The effects of alcohol start to become more noticeable.</Text>
+            <Text style={styles.doNotEvenThink}>Red blood alcohol limit (over 0.5): The effects of alcohol are significant and the risk of accidents increases.</Text>
+          </View>
+        </View>
         <Radiobuttons selectedValue={genre} onRadioButtonChange={handleRadioButtonChange} theme={theme} />
         <View>
           <TouchableOpacity onPress={() => countResult()}>
@@ -100,7 +109,12 @@ export default function App() {
         </View>
         {result !== null && (
           <View>
-            <Text style={[styles.result, theme === 'dark' && { color: styles.darkThemeColor }]}>
+            <Text style={[
+              styles.result,
+              result !== null && result < 0.2 && { color: styles.GoodToGo },
+              result !== null && result >= 0.2 && result <= 0.5 && { color: styles.ThinkTwice },
+              result !== null && result > 0.5 && { color: styles.DoNotEvenThink },
+            ]}>
               {result.toFixed(2)} Per mille
             </Text>
           </View>
