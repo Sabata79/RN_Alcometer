@@ -81,7 +81,7 @@ export default function App() {
         <View>
           <Text style={[styles.header, theme === 'dark' && { color: styles.darkThemeColor }]}>Alcometer</Text>
         </View>
-        <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight :</Text>
+        <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight : /kg</Text>
         <TextInput
           style={styles.input}
           onChangeText={(value) => setWeight(value)}
