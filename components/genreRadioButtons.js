@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import styles from '../styles/styles';
 
-export default function Radiobuttons({ selectedValue, onRadioButtonChange ,theme}) {
+export default function Radiobuttons({ selectedValue, onRadioButtonChange, theme }) {
   const options = ['Male', 'Female'];
 
   const handleRadioButtonChange = (value) => {
@@ -14,14 +14,12 @@ export default function Radiobuttons({ selectedValue, onRadioButtonChange ,theme
     <View>
       <RadioButton.Group
         onValueChange={(value) => handleRadioButtonChange(value)}
-        value={selectedValue}
-      >
+        value={selectedValue}>
         {options.map((option) => (
           <View style={styles.radioButtons} key={option}>
             <RadioButton value={option}
               color={theme === 'dark' ? styles.darkThemeColor : undefined}
-              uncheckedColor={theme === 'dark' ? styles.darkThemeColor : undefined}
-            />
+              uncheckedColor={theme === 'dark' ? styles.darkThemeColor : undefined} />
             <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>{option}</Text>
           </View>
         ))}

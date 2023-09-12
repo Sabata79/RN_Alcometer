@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
         fontSize: 11,
         borderWidth: 2,
         borderRadius: 5,
-        borderColor: 'green',      
+        borderColor: 'green',
+        opacity: 0.08
     },
     thinkTwice: {
         backgroundColor: 'lightyellow',
@@ -110,7 +111,8 @@ const styles = StyleSheet.create({
         fontSize: 11,
         borderWidth: 2,
         borderRadius: 5,
-        borderColor: 'yellow',      
+        borderColor: 'yellow',
+        opacity: 0.08
     },
     doNotEvenThink: {
         backgroundColor: 'lightcoral',
@@ -120,7 +122,8 @@ const styles = StyleSheet.create({
         fontSize: 11,
         borderWidth: 2,
         borderRadius: 5,
-        borderColor: 'red',      
+        borderColor: 'red',
+        opacity: 0.08
     },
     darkTheme: {
         container: {

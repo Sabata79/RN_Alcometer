@@ -4,6 +4,7 @@ import styles from './styles/styles';
 import ThemeSwitch from './components/themeSwitch'
 import NumericInputs from './components/bottlesTimeNumeric';
 import Radiobuttons from './components/genreRadioButtons';
+import InfoContainer from './components/infoContainer';
 
 export default function App() {
   const [theme, setTheme] = useState('light');
@@ -95,11 +96,7 @@ export default function App() {
               theme={theme}
             />
           </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.goodToGo}>Green blood alcohol limit (0.0 - 0.2): The effects of alcohol are minimal at this stage.</Text>
-            <Text style={styles.thinkTwice}>Yellow blood alcohol limit (0.2 - 0.5): The effects of alcohol start to become more noticeable.</Text>
-            <Text style={styles.doNotEvenThink}>Red blood alcohol limit (over 0.5): The effects of alcohol are significant and the risk of accidents increases.</Text>
-          </View>
+          <InfoContainer result={result}/>
         </View>
         <Radiobuttons selectedValue={genre} onRadioButtonChange={handleRadioButtonChange} theme={theme} />
         <View>
