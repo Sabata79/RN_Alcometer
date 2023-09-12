@@ -40,7 +40,6 @@ export default function App() {
   };
 
   function countResult() {
-
     if (weight === '') {
       Alert.alert(
         'You must enter your weight!',
@@ -55,24 +54,25 @@ export default function App() {
       return;
     }
 
-    let litres = bottles * 0.33
-    let grams = litres * 8 * 4.5
-    let burning = weight / 10
-    let gramsLeft = grams - (burning * time)
-    let answer = 0
+    let litres = bottles * 0.33;
+    let grams = litres * 8 * 4.5;
+    let burning = weight / 10;
+    let gramsLeft = grams - burning * time;
+    let answer = 0;
 
     if (genre === 'Male') {
-      answer = gramsLeft / (weight * 0.7)
+      answer = gramsLeft / (weight * 0.7);
     }
     if (genre === 'Female') {
-      answer = gramsLeft / (weight * 0.6)
+      answer = gramsLeft / (weight * 0.6);
     }
+
     if (isNaN(answer) || !isFinite(answer) || answer < 0) {
       setResult(0);
     } else {
       setResult(answer);
     }
-  };
+  }
 
   return (
     <View style={[styles.container, getThemeStyle()]}>
@@ -84,7 +84,7 @@ export default function App() {
         <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight :</Text>
         <TextInput
           style={styles.input}
-          onChangeText={value => setWeight(value)}
+          onChangeText={(value) => setWeight(value)}
           placeholder="Write here your weight"
           keyboardType="numeric"
         />
@@ -96,26 +96,30 @@ export default function App() {
               theme={theme}
             />
           </View>
-          <InfoContainer result={result}/>
+          <InfoContainer result={result} />
         </View>
         <Radiobuttons selectedValue={genre} onRadioButtonChange={handleRadioButtonChange} theme={theme} />
-        <View>
-          <TouchableOpacity onPress={() => countResult()}>
-            <Text style={[styles.calculatebutton, theme === 'dark' && { borderColor: styles.darkThemeColor }]}>Calculate</Text>
-          </TouchableOpacity>
-        </View>
         {result !== null && (
           <View>
-            <Text style={[
-              styles.result,
-              result !== null && result < 0.2 && { color: styles.GoodToGo },
-              result !== null && result >= 0.2 && result <= 0.5 && { color: styles.ThinkTwice },
-              result !== null && result > 0.5 && { color: styles.DoNotEvenThink },
-            ]}>
+            <Text
+              style={[
+                styles.result,
+                result !== null && result < 0.2 && { color: styles.GoodToGo },
+                result !== null && result >= 0.2 && result <= 0.5 && { color: styles.ThinkTwice },
+                result !== null && result > 0.5 && { color: styles.DoNotEvenThink },
+              ]}
+            >
               {result.toFixed(2)} Per mille
             </Text>
           </View>
         )}
+        <View>
+          <TouchableOpacity onPress={() => countResult()}>
+            <Text style={[styles.calculatebutton, theme === 'dark' && { borderColor: styles.darkThemeColor }]}>
+              Calculate
+            </Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );

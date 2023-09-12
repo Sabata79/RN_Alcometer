@@ -20,7 +20,7 @@ export default function Radiobuttons({ selectedValue, onRadioButtonChange, theme
             <RadioButton value={option}
               color={theme === 'dark' ? styles.darkThemeColor : undefined}
               uncheckedColor={theme === 'dark' ? styles.darkThemeColor : undefined} />
-            <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>{option}</Text>
+            <Text style={[styles.label,{paddingLeft: 0}, theme === 'dark' && { color: styles.darkThemeColor }]}>{option}</Text>
           </View>
         ))}
       </RadioButton.Group>

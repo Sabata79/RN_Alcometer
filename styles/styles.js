@@ -14,30 +14,32 @@ const styles = StyleSheet.create({
         paddingTop: StatusBar.currentHeight + 5,
         flex: 1,
         backgroundColor: '#ffffff',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'stretch',
     },
     switchButton: {
-        padding: 5,
+        padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
     },
     header: {
-        padding: 10,
         fontSize: 26,
         fontWeight: 'bold',
         alignSelf: 'center',
-        color: 'black',
-        fontFamily: 'Roboto'
+        color: '#000000',
+        fontFamily: 'Roboto',
+        marginBottom: 20,
     },
     label: {
-        padding: 10,
+        paddingLeft: 10,
         fontWeight: 'bold',
         fontFamily: 'Roboto'
     },
     input: {
         backgroundColor: 'lightgrey',
         width: 340,
+        fontSize: 16,
+        padding: 5,
         borderBottomColor: '#000000',
         borderBottomWidth: 2,
         paddingHorizontal: 10,
@@ -47,19 +49,20 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto'
     },
     numericBoxContainer: {
-        padding: 10,
+        padding: 5,
+        alignItems: 'flex-start'
     },
     radioButtons: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 5,
+        justifyContent: 'flex-start',
+        paddingLeft: 5,
     },
     result: {
         fontSize: 30,
-        padding: 30,
+        padding: 10,
         fontWeight: 'bold',
         alignSelf: 'center',
-        color: '#000000',
         fontFamily: 'Roboto',
     },
     calculatebutton: {
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
     contentContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 10,
+        paddingHorizontal: 5,
         marginTop: 10,
     },
     numericInputsContainer: {
@@ -90,7 +93,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 5,
         padding: 5,
-
     },
     goodToGo: {
         backgroundColor: 'lightgreen',

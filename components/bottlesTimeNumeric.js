@@ -19,7 +19,7 @@ export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) 
     <View>
       {options.map((option) => (
         <View key={option}>
-          <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>
+          <Text style={[styles.label,{paddingLeft: 5}, theme === 'dark' && { color: styles.darkThemeColor }]}>
             {option} :
           </Text>
           <View style={styles.numericBoxContainer}>
