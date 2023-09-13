@@ -19,8 +19,8 @@ export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) 
     <View>
       {options.map((option) => (
         <View key={option}>
-          <Text style={[styles.label,{paddingLeft: 5}, theme === 'dark' && { color: styles.darkThemeColor }]}>
-            {option} :
+          <Text style={[styles.label, { paddingLeft: 5 }, theme === 'dark' && { color: styles.darkThemeColor }]}>
+            {option}: {option === 'Bottles' && <Text style={{ fontSize: 9 }}>(1pcs = 0.33 beer)</Text>}
           </Text>
           <View style={styles.numericBoxContainer}>
             <NumericInput
@@ -28,7 +28,7 @@ export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) 
               onChange={option === 'Bottles' ? handleBottlesInputChange : handleTimeInputChange}
               rightButtonBackgroundColor={styles.numericInputColor}
               leftButtonBackgroundColor={styles.numericInputColor}
-              containerStyle={{ backgroundColor:  styles.darkThemeColor }}
+              containerStyle={{ backgroundColor: styles.darkThemeColor }}
               borderColor={theme === 'dark' ? styles.darkThemeColor : styles.lightThemeColor}
               rounded
             />

@@ -81,13 +81,15 @@ export default function App() {
         <View>
           <Text style={[styles.header, theme === 'dark' && { color: styles.darkThemeColor }]}>Alcometer</Text>
         </View>
-        <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight : /kg</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(value) => setWeight(value)}
-          placeholder="Write here your weight"
-          keyboardType="numeric"
-        />
+        <View style={styles.inputContainer}>
+          <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight : /kg</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={(value) => setWeight(value)}
+            placeholder="Write here your weight"
+            keyboardType="numeric"
+          />
+        </View>
         <View style={styles.contentContainer}>
           <View style={styles.numericInputsContainer}>
             <NumericInputs

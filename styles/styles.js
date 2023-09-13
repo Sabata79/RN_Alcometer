@@ -1,11 +1,21 @@
 import { StatusBar, StyleSheet } from "react-native";
+// infoBoxBaseStyle
+const commonStyle = {
+    textAlign: 'center',
+    margin: 5,
+    padding: 5,
+    fontSize: 11,
+    borderWidth: 2,
+    borderRadius: 5,
+    opacity: 0.08 
+};
 
 const styles = StyleSheet.create({
     numericInputColor: "orange",
     darkThemeColor: "#ffffff",
     lightThemeColor: "#000000",
 
-    //Result Colors:
+    // Result Colors:
     GoodToGo: 'green',
     ThinkTwice: 'yellow',
     DoNotEvenThink: 'red',
@@ -16,9 +26,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         justifyContent: 'space-between',
         alignItems: 'stretch',
+        margin: 4,
+        marginTop: 40,
+        borderWidth: 1,
+        borderRadius: 10,
     },
     switchButton: {
-        padding: 10,
+        paddingLeft: 10,
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -31,25 +45,30 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     label: {
+        flexDirection: 'row',
+        alignItems: 'center',
         paddingLeft: 10,
+        paddingBottom: 5,
         fontWeight: 'bold',
         fontFamily: 'Roboto'
     },
     input: {
         backgroundColor: 'lightgrey',
-        width: 340,
-        fontSize: 16,
+        width: '95%',
+        fontSize: 20,
         padding: 5,
         borderBottomColor: '#000000',
         borderBottomWidth: 2,
         paddingHorizontal: 10,
         alignSelf: 'center',
-        marginBottom: 10,
+        marginBottom: 30,
         marginTop: 5,
+        borderRadius: 5,
         fontFamily: 'Roboto'
     },
     numericBoxContainer: {
         padding: 5,
+        marginBottom: 40,
         alignItems: 'flex-start'
     },
     radioButtons: {
@@ -59,7 +78,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
     },
     result: {
-        fontSize: 30,
+        fontSize: 26,
         padding: 10,
         fontWeight: 'bold',
         alignSelf: 'center',
@@ -89,43 +108,25 @@ const styles = StyleSheet.create({
     infoText: {
         textAlign: 'center',
         fontSize: 11,
-        backgroundColor: 'lightgrey',
         borderRadius: 5,
         margin: 5,
         padding: 5,
     },
+    //infoBoxColors
     goodToGo: {
+        ...commonStyle,
         backgroundColor: 'lightgreen',
-        textAlign: 'center',
-        margin: 5,
-        padding: 5,
-        fontSize: 11,
-        borderWidth: 2,
-        borderRadius: 5,
-        borderColor: 'green',
-        opacity: 0.08
+        borderColor: 'green'
     },
     thinkTwice: {
+        ...commonStyle,
         backgroundColor: 'lightyellow',
-        textAlign: 'center',
-        margin: 5,
-        padding: 5,
-        fontSize: 11,
-        borderWidth: 2,
-        borderRadius: 5,
-        borderColor: 'yellow',
-        opacity: 0.08
+        borderColor: 'yellow'
     },
     doNotEvenThink: {
+        ...commonStyle,
         backgroundColor: 'lightcoral',
-        textAlign: 'center',
-        margin: 5,
-        padding: 5,
-        fontSize: 11,
-        borderWidth: 2,
-        borderRadius: 5,
-        borderColor: 'red',
-        opacity: 0.08
+        borderColor: 'red'
     },
     darkTheme: {
         container: {
