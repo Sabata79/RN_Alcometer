@@ -52,19 +52,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'Roboto'
     },
-    input: {
-        backgroundColor: 'lightgrey',
+    inputText: {
         width: '95%',
-        fontSize: 20,
-        padding: 5,
-        borderBottomColor: '#000000',
-        borderBottomWidth: 2,
-        paddingHorizontal: 10,
+        fontSize: 16,     
         alignSelf: 'center',
         marginBottom: 30,
         marginTop: 5,
-        borderRadius: 5,
-        fontFamily: 'Roboto'
+        fontFamily: 'Roboto',
     },
     numericBoxContainer: {
         padding: 5,

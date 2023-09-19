@@ -30,7 +30,7 @@ export default function NumericInputs({ onBottlesChange, onTimeChange, theme }) 
               leftButtonBackgroundColor={styles.numericInputColor}
               containerStyle={{ backgroundColor: styles.darkThemeColor }}
               borderColor={theme === 'dark' ? styles.darkThemeColor : styles.lightThemeColor}
-              rounded
+              rounded 
             />
           </View>
         </View>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
+import { ScrollView, Text, TextInput as defaultInput, TouchableOpacity, View, Alert } from 'react-native';
+import { Provider, TextInput } from 'react-native-paper';
 import styles from './styles/styles';
+import { useFonts } from 'expo-font';
 import ThemeSwitch from './components/themeSwitch'
 import NumericInputs from './components/bottlesTimeNumeric';
 import Radiobuttons from './components/genreRadioButtons';
@@ -26,6 +28,13 @@ export default function App() {
       return [styles.container, styles.darkTheme.container];
     }
   };
+
+  const [loaded] = useFonts({
+    Roboto: require('./assets/fonts/Roboto-Black.ttf')
+  });
+
+  if (!loaded)
+    return null;
 
   const handleBottlesInputChange = (value) => {
     setBottles(value);
@@ -81,14 +90,20 @@ export default function App() {
         <View>
           <Text style={[styles.header, theme === 'dark' && { color: styles.darkThemeColor }]}>Alcometer</Text>
         </View>
-        <View style={styles.inputContainer}>
+        <View>
           <Text style={[styles.label, theme === 'dark' && { color: styles.darkThemeColor }]}>Weight : /kg</Text>
+          <Provider>
           <TextInput
-            style={styles.input}
+            style= {styles.inputText}
+            mode='flat'
+            underlineColor= 'black'
+            activeUnderlineColor= 'black'
+            label={'Write here your weight'}
+            right={<TextInput.Icon icon= 'weight'/>}
             onChangeText={(value) => setWeight(value)}
-            placeholder="Write here your weight"
             keyboardType="numeric"
           />
+          </Provider>
         </View>
         <View style={styles.contentContainer}>
           <View style={styles.numericInputsContainer}>
